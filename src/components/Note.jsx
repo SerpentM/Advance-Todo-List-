@@ -13,14 +13,21 @@ function Note(props) {
         return (
           <div style={{ display: "flex" }} key={index}>
             <h4 style={{ marginRight: "5px" }}>{index + 1}) </h4>
-            <p onClick={props.changetodos}>
+            <p
+              onClick={() => {
+                obj.state = !obj.state;
+                props.propsUpdate();
+              }}
+              style={obj.state ? {} : { textDecoration: "line-through" }}
+            >
               {obj.todosValue}
-              {obj.state}
             </p>
           </div>
         );
       })}
-      <button onClick={props.setComplete}>{props.btn}</button>
+      {props.btn ? (
+        <button onClick={props.setComplete}>{props.btn}</button>
+      ) : null}
     </div>
   );
 }

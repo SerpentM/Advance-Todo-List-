@@ -103,8 +103,8 @@ export default function Login() {
               id="password"
               autoFocus
             />
-            <Button type="submit" variant="contained" sx={{ mt: 3, mb: 2 }}>
-              Sign In
+            <Button type="submit" variant="contained" sx={{ pl: 5, pr: 5 }}>
+              Register
             </Button>
           </Box>
         </Box>

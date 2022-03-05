@@ -105,7 +105,7 @@ export default function BasicTabs() {
   }
   React.useEffect(() => {
     updatTodosData();
-    console.log("run");
+    console.log(todosObjectarray);
   }, [todosObjectarray]);
   function handleUpdate() {
     inputObj.todos = todosArray;
@@ -202,6 +202,10 @@ export default function BasicTabs() {
                   array={obj.todos}
                   setComplete={() => {
                     obj.status = "complete";
+                    updatTodosData();
+                    forceUpdate();
+                  }}
+                  propsUpdate={() => {
                     updatTodosData();
                     forceUpdate();
                   }}

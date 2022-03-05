@@ -1,77 +1,74 @@
+@import url("https://cdn.syncfusion.com/ej2/material.css");
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+
 }
 html {
   font-family: "Montserrat", sans-serif;
 }
 body {
-  background: #eee;
+  background: #F9F7F7;
   padding: 0 16px;
+  color: #112D4E;
 }
 
 header {
-  background-color: #f5ba13;
+  background-color: #DBE2EF;
   margin: auto -16px;
   padding: 16px 32px;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: space-between;
 }
 
-header h1 {
-  color: #fff;
+header h3 {
+  color: #112D4E;
   font-family: "McLaren", cursive;
-  font-weight: 200;
+  font-weight: 900;
 }
 
-footer {
-  position: absolute;
-  text-align: center;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;
-}
-
-footer p {
-  color: #ccc;
-}
 .note {
-  background: #fff;
+  background: #F9F7F7;
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
-  padding: 10px;
-  width: 240px;
-  margin: 16px;
-  float: left;
+  padding: 15px;
+  min-width: 340px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  margin-bottom: 25px;
 }
 .note h1 {
-  font-size: 1.1em;
+  font-size: 1.5em;
   margin-bottom: 6px;
 }
 .note p {
   font-size: 1.1em;
   margin-bottom: 10px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
 }
 
 .note button {
   position: relative;
   float: right;
   margin-right: 10px;
-  color: #f5ba13;
   border: none;
-  width: 36px;
-  height: 36px;
+  width: auto;
+  height: 30px;
   cursor: pointer;
-  outline: none;
+  border-radius: 15px;
+  color: #ccc;
+  font-weight: bold;
+  padding: 5px 10px;
+  background-color: #3f71af;
 }
 
 .addTodos {
   position: relative;
   max-width: 480px;
   margin: 30px auto 20px auto;
-  background: #fff;
   padding: 15px;
   border-radius: 7px;
   box-shadow: 0 1px 5px rgb(138, 137, 137);
@@ -85,13 +82,31 @@ footer p {
   font-size: 1.2em;
   font-family: inherit;
   resize: none;
+  background-color: #F9F7F7;
+  color:#112D4E;
+  
+}
+.addTodos input::placeholder,
+.datepicker::placeholder,
+.addTodos textarea::placeholder{
+  color:#3f71afa4 !important; 
+}
+.addCircle{
+  font-size: 35px !important;
+ color:#3f71afe1 !important;
+}
+.tabs{
+  color:#112D4E !important
+}
+form{
+  background-color: #Fff;
 }
 form button {
   position: absolute;
   right: 18px;
   bottom: -18px;
-  background: #f5ba13;
-  color: #fff;
+  background: #3F72AF;
+  color: #F9F7F7;
   border: none;
   border-radius: 50%;
   width: 36px;
@@ -99,4 +114,7 @@ form button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+}
+.mb-5{
+  margin-bottom: 5px;
 }

@@ -14,28 +14,39 @@ const theme = createTheme();
 
 export default function Login() {
   const navigate = useNavigate();
+  const [inputerror, setError] = React.useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     // eslint-disable-next-line no-console
     let userCred = {
       email: data.get("email"),
+      username: data.get("name"),
       password: data.get("password"),
     };
-    axios
-      .post("http://localhost:7789/api/login", userCred)
-      .then((res) => {
-        if (res.data === "no user found") {
-          alert("Invalid User");
-        } else {
-          localStorage.setItem("token", res.data.token);
-          localStorage.setItem("user", JSON.stringify(res.data.user));
-          navigate("/");
-        }
-      })
-      .catch((err) => {
-        alert(err);
-      });
+    if (
+      userCred.email === "" ||
+      userCred.username === "" ||
+      userCred.password === ""
+    ) {
+      setError(true);
+    } else {
+      axios
+        .post("http://localhost:7789/api/register", userCred)
+        .then((res) => {
+          console.log(res);
+          if (res.data === "User Already Exist") {
+            alert("Invalid User");
+          } else {
+            alert("User Created");
+            navigate("/login");
+          }
+        })
+        .catch((err) => {
+          alert(err);
+          alert("User already Exist ");
+        });
+    }
   };
   return (
     <ThemeProvider theme={theme}>
@@ -50,7 +61,7 @@ export default function Login() {
           }}
         >
           <Typography component="h1" variant="h3">
-            Login
+            Register User
           </Typography>
           <Box
             component="form"
@@ -62,10 +73,22 @@ export default function Login() {
               margin="normal"
               required
               fullWidth
+              error={inputerror}
               id="email"
               label="Email Address"
               name="email"
-              helperText="Incorrect entry."
+              helperText="required *"
+              autoFocus
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="Name"
+              name="name"
+              error={inputerror}
+              helperText="required *"
               autoFocus
             />
             <TextField
@@ -73,11 +96,12 @@ export default function Login() {
               required
               fullWidth
               name="password"
-              error={true}
               label="Password"
+              error={inputerror}
               type="password"
+              helperText="required *"
               id="password"
-              helperText="Incorrect entry."
+              autoFocus
             />
             <Button type="submit" variant="contained" sx={{ mt: 3, mb: 2 }}>
               Sign In
